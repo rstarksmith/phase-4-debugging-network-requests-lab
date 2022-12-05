@@ -63,11 +63,23 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
-
+  status 500 NameError - network tab
+  POST 500 internal server error - console
+  Open rails server - NameError unintialized contant Toy rb:11
+  went to line 11 in the controller, saw that Toy was Toys
+  
 - Update the number of likes for a toy
 
   - How I debugged:
+  Unexpected end of JSON input - console
+  Checked network tab under id - payload likes updated, no response returned. Opened rails console, Toy.find(id) likes was actually updated.
+  Checked controller actions and the update action was not rendering a json response
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+  404 not found - console
+  check server terminal response - RoutingError (no route matches)
+  Checked the controller action which was correct
+  then checked the routes.rb and noticed there was no :destroy
+  added and fixed issue
